@@ -1,6 +1,8 @@
 FROM ubuntu:vivid
 MAINTAINER ch@mosaiksoftware.de
 
+#default password for pki user
+ENV PASSWORD pki123 
 # Install required packages
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python sudo vim screen git python-twisted python-twisted-web python-twisted-web2 bash openssh-server
