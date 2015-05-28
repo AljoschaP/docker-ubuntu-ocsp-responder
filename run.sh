@@ -1,3 +1,2 @@
 echo "pki:$PASSWORD" | chpasswd
-
-tail -f /var/log/debug
+cat
