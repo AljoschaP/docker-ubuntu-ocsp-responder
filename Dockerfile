@@ -1,4 +1,4 @@
-FROM ubuntu:saucy
+FROM ubuntu:vivid
 MAINTAINER ch@mosaiksoftware.de
 
 # Install required packages
