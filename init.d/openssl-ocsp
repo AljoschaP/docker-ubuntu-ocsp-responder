@@ -1,0 +1,29 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          Was macht das Skript?
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Kurze Beschreibung
+# Description:       Längere Bechreibung
+### END INIT INFO
+# Author: Name <email@domain.tld>
+
+# Aktionen
+case "$1" in
+    start)
+	/home/ubuntu/start_ocsp.exp &	
+	echo $(top -b -n 1 | grep '\<[o]penssl\>$' | awk '{print $1}') > /var/run/openssl-ocsp.pid        
+	;;
+    stop)
+        sudo kill $(ps aux | grep '[o]penssl' | awk '{print $2}')
+        ;;
+    restart)
+        sudo kill $(ps aux | grep '[o]penssl' | awk '{print $2}')
+        /home/ubuntu/start_ocsp.exp &   
+        echo $(top -b -n 1 | grep '\<[o]penssl\>$' | grep '\<[o]penssl\>' | awk '{print $1}') > /var/run/openssl-ocsp.pid
+        ;;
+esac
+
+exit 0

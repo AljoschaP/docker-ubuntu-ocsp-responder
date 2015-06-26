@@ -10,6 +10,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python sudo vim screen git
 RUN useradd -r -g sudo pki
 
 EXPOSE 22 80 443 
+COPY monit/monitrc /etc/monit/
+COPY Router /home/pki
+COPY init.d/openssl-ocsp /etc/init.d/
 COPY run.sh /run.sh
 ENTRYPOINT ["/bin/bash"]
 CMD ["/run.sh"]

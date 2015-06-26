@@ -1,0 +1,26 @@
+var express = require('express');
+var app = express();
+
+// a middleware with no mount path, gets executed for every request to the router
+app.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
+
+app.get('/', function (req, res) {
+  res.send('GET Request is not supported for this OCSP');
+});
+
+app.post('*', function (req, res){
+res.redirect('http://127.0.0.1:8888'); 
+});
+
+server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
