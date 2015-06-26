@@ -1,4 +1,4 @@
-FROM ubuntu:vivid
+FROM ubuntu:precise
 MAINTAINER ch@mosaiksoftware.de
 
 #default password for pki user
