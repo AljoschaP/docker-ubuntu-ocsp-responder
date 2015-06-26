@@ -11,7 +11,9 @@ RUN useradd -r -g sudo pki
 
 EXPOSE 22 80 443 
 COPY monit/monitrc /etc/monit/
-COPY Router /home/pki
+COPY Router /home/pki/
+COPY ca /home/pki/
+COPY va /home/pki/
 COPY init.d/openssl-ocsp /etc/init.d/
 COPY run.sh /run.sh
 ENTRYPOINT ["/bin/bash"]
