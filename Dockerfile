@@ -1,4 +1,4 @@
-FROM ubuntu:precise
+FROM ubuntu:12.04
 MAINTAINER ch@mosaiksoftware.de
 
 #default password for pki user
