@@ -13,7 +13,7 @@
 # Aktionen
 case "$1" in
     start)
-	/opt/pki/OCSP/start_ocsp.sh &	
+	sh /opt/pki/OCSP/start_ocsp.sh &	
 	echo $(top -b -n 1 | grep '\<[o]penssl\>$' | awk '{print $1}') > /var/run/openssl-ocsp.pid        
 	;;
     stop)
@@ -21,7 +21,7 @@ case "$1" in
         ;;
     restart)
         sudo kill $(ps aux | grep '[o]penssl' | awk '{print $2}')
-        /opt/pki/OCSP/start_ocsp.sh &   
+        sh /opt/pki/OCSP/start_ocsp.sh &   
         echo $(top -b -n 1 | grep '\<[o]penssl\>$' | grep '\<[o]penssl\>' | awk '{print $1}') > /var/run/openssl-ocsp.pid
         ;;
 esac
