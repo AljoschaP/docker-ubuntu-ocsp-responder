@@ -1,5 +1,9 @@
 var http = require('http'),
     httpProxy = require('http-proxy');
+var chokidar = require('chokidar');
+var sys = require('sys');
+var exec = require('child_process').exec;
+
 
 //
 // Create a proxy server with custom application logic
@@ -30,5 +34,12 @@ http.createServer(function (req, res) {
   res.write('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
   res.end();
 }).listen(8080);
+
+chokidar.watch('/opt/pki/ca/index.txt', {ignored: /[\/\\]\./}).on('change', function(event, path) {
+  //console.log(event, path);
+exec("/etc/init.d/ocsp stop");
+
+});
+
 
 

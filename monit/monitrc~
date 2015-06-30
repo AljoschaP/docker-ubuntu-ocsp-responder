@@ -258,5 +258,5 @@
 #
 ############## Monitoring OCSP Server ###############
 check process openssl-ocsp with pidfile /var/run/openssl-ocsp.pid
-start program "/etc/init.d/ocsp start"
-stop program "/etc/init.d/ocsp stop"
+start program "/etc/init.d/openssl-ocsp start"
+stop program "/etc/init.d/openssl-ocsp stop"
