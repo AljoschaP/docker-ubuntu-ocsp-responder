@@ -15,7 +15,7 @@ COPY Router /opt/pki/Router
 COPY ca /opt/pki/ca
 COPY va /opt/pki/va
 COPY OCSP /opt/pki/OCSP
-COPY init.d/openssl-ocsp /etc/init.d/
+COPY init.d/ocsp /etc/init.d/
 COPY run.sh /run.sh
 ENTRYPOINT ["/bin/bash"]
 CMD ["/run.sh"]
