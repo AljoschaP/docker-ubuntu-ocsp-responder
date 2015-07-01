@@ -8,4 +8,4 @@ npm install -g n
 n stable
 start ocsp
 nohup node /opt/pki/Router/ocsp_router.js &
-cat
+/usr/sbin/sshd -D
