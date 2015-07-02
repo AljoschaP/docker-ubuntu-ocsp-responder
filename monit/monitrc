@@ -260,3 +260,8 @@
 check process openssl-ocsp with pidfile /var/run/openssl-ocsp.pid
 start program "/etc/init.d/ocsp start"
 stop program "/etc/init.d/ocsp stop"
+
+check process ocsp-router with pidfile /var/run/ocsp-router.pid
+start program "/etc/init.d/ocsp-router start"
+stop program "/etc/init.d/ocsp-router stop"
+

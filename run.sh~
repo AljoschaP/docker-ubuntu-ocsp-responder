@@ -7,5 +7,5 @@ npm cache clean -f
 npm install -g n
 n stable
 start ocsp
-nohup node /opt/pki/Router/ocsp_router.js &
-cat
+start ocsp-router
+/usr/sbin/sshd -D

@@ -5,7 +5,8 @@ touch /opt/pki/ca/index.txt.attr
 npm config set registry http://registry.npmjs.org/
 npm cache clean -f
 npm install -g n
+npm install -g forever
 n stable
 start ocsp
-nohup node /opt/pki/Router/ocsp_router.js &
+start ocsp-router
 /usr/sbin/sshd -D

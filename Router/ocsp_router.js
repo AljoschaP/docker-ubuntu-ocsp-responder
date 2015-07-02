@@ -3,6 +3,18 @@ var http = require('http'),
 var chokidar = require('chokidar');
 var sys = require('sys');
 var exec = require('child_process').exec;
+var fs = require('fs');
+var npid = require('npid');
+
+try {
+    var pid = npid.create('/var/run/ocsp-router.pid');
+    pid.removeOnExit();
+} catch (err) {
+    console.log(err);
+    process.exit(1);
+}
+
+
 
 
 //
@@ -36,7 +48,14 @@ http.createServer(function (req, res) {
 }).listen(8080);
 
 chokidar.watch('/opt/pki/ca/index.txt', {ignored: /[\/\\]\./}).on('change', function(event, path) {
-  //console.log(event, path);
+  fs.appendFile('/var/log/ocsp-router/ocsp-router.log',event+":"+path.ctime+"\n", function (err) {
+});
+console.log(event,path);
+exec("/etc/init.d/ocsp stop");
+
+});
+
+
 exec("/etc/init.d/ocsp stop");
 
 });
