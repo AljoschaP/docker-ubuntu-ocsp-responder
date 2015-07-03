@@ -13,8 +13,9 @@
 # Aktionen
 case "$1" in
     start)
+	fuser -k -n tcp 8888
 	sh /opt/pki/OCSP/start_ocsp.sh &	
-	echo $(top -b -n 1 | grep '\<[o]penssl\>$' | awk '{print $1}') > /var/run/openssl-ocsp.pid        
+	echo $! > /var/run/openssl-ocsp.pid        
 	;;
     stop)
         sudo kill $(ps aux | grep '[o]penssl' | awk '{print $2}')

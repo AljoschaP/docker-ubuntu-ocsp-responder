@@ -16,7 +16,7 @@
 ##
 ## Start Monit in the background (run as a daemon):
 #
-  set daemon 10            # check services at 2-minute intervals
+  set daemon 3            # check services at 2-minute intervals
 #   with start delay 240    # optional: delay the first check by 4-minutes (by 
 #                           # default Monit check immediately after Monit start)
 #
@@ -265,3 +265,6 @@ check process ocsp-router with pidfile /var/run/ocsp-router.pid
 start program "/etc/init.d/ocsp-router start"
 stop program "/etc/init.d/ocsp-router stop"
 
+check process endpoint with pidfile /var/run/endpoint.pid
+start program "/etc/init.d/endpoint start"
+stop program "/etc/init.d/endpoint stop"
