@@ -3,6 +3,6 @@
   - OCSP: /opt/pki/OCSP
   - index.txt /opt/pki/ca
   - Router: /opt/pki/Router
-  
+-  
 Start/Stop OCSP : /etc/init.d/ocsp <start|stop>
 
