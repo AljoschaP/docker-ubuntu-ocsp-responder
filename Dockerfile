@@ -16,7 +16,7 @@ COPY monit/monitrc /etc/monit/
 COPY Router /opt/pki/Router
 COPY ca /opt/pki/ca
 COPY va /opt/pki/va
-COPY endpoint /opt /pki/endpoint
+COPY endpoint /opt/pki/endpoint
 COPY OCSP /opt/pki/OCSP
 COPY init.d/ocsp /etc/init.d/
 COPY init.d/ocsp-router /etc/init.d/
